@@ -82,7 +82,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
     public function getHomeUrl($path){
 
         $baseUrl = $this->getStoreConfig('recapture/configuration/dev_base_url');
-        if (!$baseUrl) $baseUrl = 'https://www.recapture.io/';
+        if (!$baseUrl) $baseUrl = 'http://www.recapture.io/';
 
         return $baseUrl . $path;
 
