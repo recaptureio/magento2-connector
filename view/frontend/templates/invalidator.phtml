@@ -1,0 +1,38 @@
+<?php $invalidations = $this->getInvalidations(); ?>
+<?php if (count($invalidations)){ ?>
+  <script>
+
+    //I literally cannot find a better way to do this. I need to invalidate some local storage data after a GET request
+    //and there is no way as far as i can tell to hook into the already init()'ed customerData instance and simply invalidate a section.
+    //so i have to re-init it with the same data as it was already init()'ed with so i can use it. why is it not inside a global object?
+
+    require([
+        'Magento_Customer/js/customer-data'
+    ], function (customerData) {
+
+        var options = {
+          sectionLoadUrl: '<?php echo $this->getCustomerDataUrl('customer/section/load') ?>',
+          cookieLifetime: '<?php echo $this->getCookieLifeTime() ?>'
+        };
+
+        customerData['Magento_Customer/js/customer-data'](options);
+
+        <?php
+          $sections = '';
+          foreach ($invalidations as $invalidation){
+
+            if ($sections != ''){
+              $sections .= ',';
+            }
+
+            $sections .= $invalidation;
+
+          }
+        ?>
+
+        customerData.reload("<?php echo $sections ?>");
+
+    });
+
+  </script>
+<?php } ?>

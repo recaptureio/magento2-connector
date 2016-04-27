@@ -1,0 +1,11 @@
+<?php if ($this->shouldTrack()){ ?>
+    <script>
+        require([
+            '<?php echo $this->getAnalyticsUrl() ?>'
+        ], function(){
+            ra('init', ['<?php echo $this->getApiKey() ?>']);
+            ra('page');
+            ra('email');
+        });
+    </script>
+<?php } ?>

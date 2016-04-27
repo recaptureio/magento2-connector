@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+     <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+      <default>
+        <recapture>
+          <abandoned_carts>
+            <return_landing>cart</return_landing>
+            <track_email>1</track_email>
+            <capture_subscriber>1</capture_subscriber>
+          </abandoned_carts>
+        </recapture>
+      </default>
+    </config>

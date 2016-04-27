@@ -1,0 +1,12 @@
+<?php if ($this->shouldTrack()){ ?>
+    <script>
+        require([
+            '<?php echo $this->getAnalyticsUrl() ?>'
+        ], function(){
+            ra('init', ['<?php echo $this->getApiKey() ?>']);
+            ra('product', [{
+                sku: '<?php echo $this->getCurrentProduct()->getSku() ?>'
+            }]);
+        });
+    </script>
+<?php } ?>

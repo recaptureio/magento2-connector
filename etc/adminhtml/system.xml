@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="recapture" translate="label" sortOrder="150">
+            <label>Recapture Connector</label>
+        </tab>
+        <section id="recapture" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Extension Configuration</label>
+            <tab>recapture</tab>
+            <resource>Recapture_Connector::config</resource>
+
+            <group id="configuration" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Authentication</label>
+
+                <field id="status" sortOrder="0" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Authentication Status</label>
+                    <frontend_model>Recapture\Connector\Block\Adminhtml\System\Config\Status</frontend_model>
+                </field>
+                <field id="authenticate" sortOrder="1" type="button" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Authenticate Account</label>
+                    <frontend_model>Recapture\Connector\Block\Adminhtml\System\Config\Authenticate</frontend_model>
+                </field>
+                <field id="enabled" translate="label" sortOrder="2" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_key" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Key</label>
+                    <frontend_model>Recapture\Connector\Block\Adminhtml\System\Config\Key</frontend_model>
+                </field>
+            </group>
+            <group id="abandoned_carts" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Abandoned Carts Configuration</label>
+
+                <!-- Currently disabled, M2 checkout doesn't save the email address, so this setting needs to always be on -->
+                <!--
+                <field id="track_email" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Pre-submit Email Capturing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When enabled, this will immediately capture typed email addresses anywhere on your site, without requiring the customer to submit any type of form. Useful on checkouts like One Step Checkout.</comment>
+                </field>
+                -->
+                <!--
+                <field id="capture_subscriber" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Newsletter Subscription Capturing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When enabled, this will capture any emails that are subscribed to your newsletter.</comment>
+                </field>
+                -->
+                <field id="return_landing" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Click Through Landing</label>
+                    <source_model>Recapture\Connector\Model\Landing</source_model>
+                    <comment>What page do you want the customer to land on when they click a link in any abandoned cart emails we send?</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

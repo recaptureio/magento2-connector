@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_delete_after">
+        <observer name="recapture_quote_delete" instance="Recapture\Connector\Observer\QuoteDelete" />
+    </event>
+    <event name="sales_quote_address_collect_totals_after">
+        <observer name="recapture_collect_totals" instance="Recapture\Connector\Observer\QuoteUpdate" />
+    </event>
+    <event name="sales_order_place_after">
+        <observer name="recapture_quote_conversion" instance="Recapture\Connector\Observer\QuoteConversion" />
+    </event>
+</config>
