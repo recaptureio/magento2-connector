@@ -1,5 +1,5 @@
 {
-    "name": "recaptureio/magento2-connector",
+    "name": "recapture/magento2-connector",
     "description": "Recapture Magento2 Connector",
     "require": {
         "magento/magento-composer-installer": "*"
