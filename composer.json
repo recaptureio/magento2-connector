@@ -1,5 +1,5 @@
 {
-    "name": "recapture/magento2-connector",
+    "name": "recaptureio/magento2-connector",
     "description": "Recapture Magento2 Connector",
     "type": "magento2-module",
      "version": "2.1.0",
