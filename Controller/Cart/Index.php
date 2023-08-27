@@ -7,6 +7,7 @@ use Recapture\Connector\Model\Landing;
 class Index extends \Magento\Framework\App\Action\Action {
 
     protected $helper;
+    protected $invalidator;
     protected $transport;
     protected $logger;
     protected $messageManager;
